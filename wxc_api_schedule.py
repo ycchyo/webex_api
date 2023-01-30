@@ -5,10 +5,19 @@ import pandas as pd
 import jpholiday
 import collections as cl
 import os
+import warnings
+import subprocess
+import sys
 
+subprocess.Popen('PAUSE', shell=True)
+warnings.simplefilter("ignore")
+
+# from os import path
+# bundle_dir = path.abspath(path.dirname(__file__))
+# path_to_dat = path.join(bundle_dir, 'userinfo.csv')
 # 当年の祝日を出力
 # YEAR = "2023"
-
+# print(path_to_dat)
 
 # print(list_Date[0])
 # print(list_name)
@@ -18,8 +27,11 @@ def resource_path(relative_path):
     except Exception:
         base_path = os.path.dirname(__file__)
     return os.path.join(base_path, relative_path)
-#
-file_path = resource_path('./userinfo.csv')
+
+script_dir = os.getcwd()
+file_dir_path = os.path.join(script_dir)
+file_path = resource_path(f'{file_dir_path}/userinfo.csv')
+
 df = pd.read_csv(file_path, encoding='utf_8', keep_default_na=False, low_memory=False)
 # print(df.iloc[0,1])
 
@@ -91,6 +103,7 @@ def main():
     print("POST ----------------------------")
     print(response)
     print(json.dumps(res_j, indent=4, ensure_ascii=False))
+
 
     # fw = open('holiday.json', 'w', encoding="cp932")
     # hjson_schedule = payload.decode('utf-8')
