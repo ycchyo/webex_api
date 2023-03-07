@@ -47,10 +47,6 @@ print(df_holiday)
 list_name = df_holiday["name"].to_list()
 list_Date = df_holiday["Date"].to_list()
 
-# TOKEN = "OTkxZDJhNGItN2M3My00NTdhLWI0ZWMtMTc2MTdiMmM2OWZmMDk1NDhiYjEtZDI0_PF84_0198f08a-3880-4871-b55e-4863ccf723d5"
-# ORG_ID = "4206e26d-776d-4a38-a8fc-7b8cc8b73452"
-# LOCID = 'Y2lzY29zcGFyazovL3VzL0xPQ0FUSU9OLzQzODM4ZDYyLTdmMWEtNDA5YS05ZDM4LWVmMGYzZDYxNmZmMQ'
-# HOLIDAY_NAME = "API-Holiday3"
 now = datetime.datetime.now()
 
 url = f"https://webexapis.com/v1/telephony/config/numbers?orgId={ORG_ID}"
@@ -86,8 +82,8 @@ def main():
     #日本語文字化けascii
 
     payload = json.dumps({
-        # "name": HOLIDAY_NAME,
-        "name": "API-Holiday3",
+        "name": HOLIDAY_NAME,
+        # "name": "API-Holiday3",
         "type": "holidays",
         "events": h_date
     }, ensure_ascii=False).encode("utf-8")
